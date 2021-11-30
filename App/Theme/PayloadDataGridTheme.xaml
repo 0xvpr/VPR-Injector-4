@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="CustomDataGridStyle" TargetType="{x:Type DataGrid}">
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource CustomColumnHeaderStyle}"/>
+    </Style>
+
+    <Style x:Key="CustomColumnHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="#07233F"/>
+        <Setter Property="Foreground" Value="#CFCFCF"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="SeparatorVisibility" Value="Visible"/>
+        <Setter Property="SeparatorBrush" Value="#7A7A7A"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="ToolTip" Value="Click to sort."/>
+                <Setter Property="Background" Value="#0090CF"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+
+            <Trigger Property="Selector.IsSelected" Value="True">
+                <Setter Property="Background" Value="#5A5A5A"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type DataGrid}"
+           x:Key="PayloadDataGrid">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGrid}">
+                    <DataGrid VerticalGridLinesBrush="#7A7A7A"
+                              Foreground="#0A2A4A"
+                              Background="#0A2A4A"
+                              BorderBrush="Transparent"
+                              Style="{DynamicResource CustomDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Arch" MinWidth="30" MaxWidth="30"/>
+                            <DataGridTextColumn Header="Name" MinWidth="90" MaxWidth="90" Selector.IsSelected="True"/>
+                            <DataGridTextColumn Header="Path" MinWidth="130" MaxWidth="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

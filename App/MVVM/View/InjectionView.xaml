@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="Testing.MVVM.View.InjectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Testing.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="275" d:DesignWidth="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   Text="Target"
+                   Foreground="White"
+                   FontSize="24"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,0"/>
+        <TextBlock Grid.Column="1"
+                   Grid.Row="0"
+                   Text="Payload"
+                   Foreground="White"
+                   FontSize="24"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,0"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <RadioButton Name="processRadioButton"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Content="Process"
+                       Foreground="White"
+                       Margin="10,0,0,0"
+                       IsChecked="True"/>
+                <TextBox Name="processTextBox"
+                         Grid.Column="1"
+                         Grid.Row="0"
+                         Width="90"
+                         Height="20"
+                         HorizontalAlignment="Left"
+                         Margin="10,0,0,0"
+                         Style="{StaticResource ProcessTextBox}"/>
+
+                <RadioButton Name="pidRadioButton"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Content="PID"
+                             Foreground="White"
+                             HorizontalAlignment="Left"
+                             Margin="10,5,0,0"/>
+                <TextBox Name="pidTextBox"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Width="90"
+                         Height="20"
+                         HorizontalAlignment="Left"
+                         Margin="10,5,0,0"
+                         Style="{StaticResource PidTextBox}"/>
+            </Grid>
+            <Button Name="injectButton"
+                    Content="Inject"
+                    Width="90"
+                    Margin="75,10,0,0"/>
+        </StackPanel>
+        <DataGrid Name="payloadDataGrid"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  Grid.RowSpan="2"
+                  Width="250"
+                  Height="225"
+                  Background="#09294A"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  BorderBrush="Transparent"
+                  Margin="10,2,0,0"
+                  AllowDrop="True"
+                  Style="{StaticResource PayloadDataGrid}"/>
+    </Grid>
+</UserControl>
